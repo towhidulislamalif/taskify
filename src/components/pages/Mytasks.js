@@ -17,12 +17,15 @@ const Mytasks = () => {
     queryKey: ['tasks'],
     queryFn: async () => {
       try {
-        const res = await fetch(`http://localhost:5000/tasks/${user?.email}`, {
-          method: 'GET',
-          headers: {
-            'content-type': 'application/json',
-          },
-        });
+        const res = await fetch(
+          `https://tasks-server-navy.vercel.app/tasks/${user?.email}`,
+          {
+            method: 'GET',
+            headers: {
+              'content-type': 'application/json',
+            },
+          }
+        );
         const data = await res.json();
         return data;
       } catch (error) {
@@ -33,7 +36,7 @@ const Mytasks = () => {
   console.log('🚀 ~ file: Mytasks.js:29 ~ Mytasks ~ myTasks', myTasks);
   // update tasks to the database
   const handlecomplete = (id) => {
-    fetch(`http://localhost:5000/tasks/${id}`, {
+    fetch(`https://tasks-server-navy.vercel.app/tasks/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
@@ -55,7 +58,7 @@ const Mytasks = () => {
   };
   // delete task to the database
   const handleremove = (id) => {
-    fetch(`http://localhost:5000/tasks/${id}`, {
+    fetch(`https://tasks-server-navy.vercel.app/tasks/${id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',

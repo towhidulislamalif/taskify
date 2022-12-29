@@ -1,6 +1,6 @@
 // add tasks to the database
 export const addTask = async (tasksdata) => {
-  const response = await fetch('http://localhost:5000/tasks', {
+  const response = await fetch('https://tasks-server-navy.vercel.app/tasks', {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
